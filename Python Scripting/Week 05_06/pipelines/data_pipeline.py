@@ -14,8 +14,8 @@ from data_splitter import SimpleTrainTestSplitStratergy
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
 from config import get_data_paths, get_columns, get_missing_values_config, get_outlier_config, get_binning_config, get_encoding_config, get_scaling_config, get_splitting_config
 def data_pipeline(
-                    data_path: str='data/raw/ChurnModelling.csv', 
-                    target_column: str='Exited', 
+                    data_path: str='data/raw/Telco-Customer-Churn.csv', 
+                    target_column: str='Churn', 
                     test_size: float=0.2, 
                     force_rebuild: bool=False
                     ) -> Dict[str, np.ndarray]:
@@ -82,7 +82,7 @@ def data_pipeline(
 
     print('\nStep 4: Feature Binning')
 
-    binning = CustomBinningStratergy(binning_config['credit_score_bins'])
+    binning = CustomBinningStratergy(binning_config['credit_score_bind'])
     df = binning.bin_feature(df, 'CreditScore')
     print(f"data after feature binning: \n{df.head()}")
 

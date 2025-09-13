@@ -1,14 +1,13 @@
 data_paths:
-  raw_data: "data/raw/ChurnModelling.csv"
+  raw_data: "data/raw/Telco-Customer-Churn.csv"
   processed_data: "data/processed/ChurnModelling_Missing_Values_Handled.csv"
   artifacts_dir: "artifacts"
   data_artifacts_dir: "artifacts/data"
   model_artifacts_dir: "artifacts/models"
 
 columns:
-  target: "Exited"
+  target: "Churn"
   drop_columns: ["CustomerId"]
-  critical_columns: ["Firstname"]
   outlier_columns: ["CreditScore", "Age", "NumOfProducts"]
   nominal_columns: ['gender', 'InternetService', 'Contract', 'PaymentMethod']
   numeric_columns: ['MonthlyCharges', 'TotalCharges']
@@ -140,7 +139,7 @@ logging:
   file: "pipeline.log"
 
 environment:
-  experiment_name: "churn_analysis"
+  experiment_name: "telco_churn_analysis"
 
 pipeline:
   data_pipeline_name: "data_processing_pipeline"

@@ -20,7 +20,7 @@ class IQROutlierDetection(OutlierDetectionStrategy):
             print(f"IQR for {col}: {IQR}")
 
             outliers[col] = (df[col] < Q1 - 1.5 * IQR) | (df[col] > Q3 + 1.5 * IQR)
-        logging.infor("Outliers detceted using IQR method.")
+        logging.info("Outliers detceted using IQR method.")
         return outliers
         
 class OutlierDetector:
@@ -28,7 +28,7 @@ class OutlierDetector:
         self.strategy = strategy
 
     def detect_outliers(self, df, selected_columns):
-        return self._strategy.detect_outliers(df, selected_columns)
+        return self.strategy.detect_outliers(df, selected_columns)
     
     def handle_outliers(self, df, selected_columns, method='remove'):
         outliers = self.detect_outliers(df, selected_columns)
