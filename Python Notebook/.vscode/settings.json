@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./Week 05_06/Week 05_06/src",
+        "./Week 05_06/Week 05_06/utils"
+    ]
+}
