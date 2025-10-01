@@ -2,6 +2,16 @@ uv venv
 
 .venv\Scripts\activate
 
- uv pip install -r requirements.txt
+uv pip install -r requirements.txt
 
 python pipelines/data_pipeline.py 
+
+
+
+rt = RandomForestModelBuilder()
+rt_model = rt.build_model()
+print(rt_model)
+
+
+inference = ModelInference('artifacts/models/churn_analysis.joblib')
+inference.load_encoders()

@@ -30,3 +30,11 @@ class CustomBinningStratergy(FeatureBinningStrategy):
         del df[column]
 
         return df
+    
+    def bin_boolean(self, df, column):
+        """
+        Converts 'Yes'/'No' values in specified columns to 1/0.
+        """
+        for col in column:
+            df[col] = df[col].map({'Yes': 1, 'No': 0})
+        return df

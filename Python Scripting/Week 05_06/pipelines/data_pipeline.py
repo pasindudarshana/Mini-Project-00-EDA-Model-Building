@@ -5,10 +5,10 @@ from typing import Dict
 import numpy as np
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 from data_ingestion import DataIngestorCSV
-from handle_missing_values import DropMissingValuesStrategy, ReplaceValuesStrategy
+from handle_missing_values import ReplaceValuesStrategy
 from outlier_detection import OutlierDetector, IQROutlierDetection
 from feature_binning import CustomBinningStratergy
-from feature_encoding import OrdinalEncodingStratergy, NominalEncodingStrategy
+from feature_encoding import OrdinalEncodingStratergy, NominalEncodingStrategy, ServiceFeatureEncodingStrategy
 from feature_scaling import MinMaxScalingStratergy
 from data_splitter import SimpleTrainTestSplitStratergy
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
@@ -17,11 +17,11 @@ def data_pipeline(
                     data_path: str='data/raw/Telco-Customer-Churn.csv', 
                     target_column: str='Churn', 
                     test_size: float=0.2, 
-                    force_rebuild: bool=False
-                    ) -> Dict[str, np.ndarray]:
+                    force_rebuild: bool=False) -> Dict[str, np.ndarray]:
     
     data_paths = get_data_paths()
     columns = get_columns()
+    missing_values_config = get_missing_values_config()
     outlier_config = get_outlier_config()
     binning_config = get_binning_config()
     encoding_config = get_encoding_config()
@@ -47,28 +47,17 @@ def data_pipeline(
         Y_test =pd.read_csv(y_test_path)
 
     os.makedirs(data_paths['data_artifacts_dir'], exist_ok=True)
-    if not os.path.exists('temp_imputed.csv'):
-        ingestor = DataIngestorCSV()
-        df = ingestor.ingest(data_path)
-        print(f"loaded data shape: {df.shape}")
 
-        print('\nStep 2: Handle Missing Values')
-        drop_handler = DropMissingValuesStrategy(critical_columns=columns['critical_columns'])
+    ingestor = DataIngestorCSV()
+    df = ingestor.ingest(data_path)
+    print(f"loaded data shape: {df.shape}")
 
-        age_handler = FillMissingValuesStrategy(                
-                                                method='mean',
-                                                relevant_column='Age'
-                                                )
-        
-        gender_handler = FillMissingValuesStrategy(
-                                                relevant_column='Gender', 
-                                                is_custom_imputer=True,
-                                                custom_imputer=GenderImputer()
-                                                )
-        df = drop_handler.handle(df)
-        df = age_handler.handle(df)
-        df = gender_handler.handle(df) 
-        df.to_csv('temp_imputed.csv', index=False)
+    print('\nStep 2: Handle Missing Values')
+
+    totalcharges_handler = ReplaceValuesStrategy(replace_columns=columns['convert_columns'])
+
+    df = totalcharges_handler.handle(df)
+    df.to_csv('temp_imputed.csv', index=False)
 
     df = pd.read_csv('temp_imputed.csv')
 
@@ -82,17 +71,21 @@ def data_pipeline(
 
     print('\nStep 4: Feature Binning')
 
-    binning = CustomBinningStratergy(binning_config['credit_score_bind'])
-    df = binning.bin_feature(df, 'CreditScore')
+    binning = CustomBinningStratergy(binning_config['tenure_bins'])
+
+    df = binning.bin_feature(df, 'tenure')
+    df = binning.bin_boolean(df, columns['boolean_columns'])
     print(f"data after feature binning: \n{df.head()}")
 
     print('\nStep 5: Feature Encoding')
 
     nominal_strategy = NominalEncodingStrategy(encoding_config['nominal_columns'])
     ordinal_strategy = OrdinalEncodingStratergy(encoding_config['ordinal_mappings'])
+    service_strategy = ServiceFeatureEncodingStrategy()
 
     df = nominal_strategy.encode(df)
     df = ordinal_strategy.encode(df)
+    df = service_strategy.encode(df)
     print(f"data after feature encoding: \n{df.head()}")
 
     print('\nStep 6: Feature Scaling')
@@ -101,12 +94,13 @@ def data_pipeline(
     print(f"data after feature scaling: \n{df.head()}")
 
     print('\nStep 7: Post Processing')
-    df = df.drop(columns=['RowNumber', 'CustomerId', 'Firstname', 'Lastname'])
+    df = df.drop(columns=columns['drop_columns'])
     print(f"data after post processing: \n{df.head()}")
+    print("First 5 rows fully:\n", df.iloc[:5].to_string())
 
     print('\nStep 8: Data Splitting')
     splitting_stratergy = SimpleTrainTestSplitStratergy(test_size=splitting_config['test_size'])
-    X_train, X_test, Y_train, Y_test = splitting_stratergy.split_data(df, 'Exited')
+    X_train, X_test, Y_train, Y_test = splitting_stratergy.split_data(df, 'Churn')
 
     X_train.to_csv(x_train_path, index=False)
     X_test.to_csv(x_test_path, index=False)

@@ -7,21 +7,25 @@ data_paths:
 
 columns:
   target: "Churn"
-  drop_columns: ["CustomerId"]
-  outlier_columns: ["CreditScore", "Age", "NumOfProducts"]
+  drop_columns: ["customerID"]
+  convert_columns: ['TotalCharges']
+  outlier_columns: ['MonthlyCharges', 'TotalCharges']
   nominal_columns: ['gender', 'InternetService', 'Contract', 'PaymentMethod']
   numeric_columns: ['MonthlyCharges', 'TotalCharges']
+  boolean_columns: ["Partner", "Dependents", "PaperlessBilling", "Churn"]
+  service_columns: ['PhoneService', 'MultipleLines', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies']
+  
   feature_columns:
-    - "CreditScore"
-    - "Geography"
-    - "Gender"
-    - "Age"
-    - "Tenure"
-    - "Balance"
-    - "NumOfProducts"
-    - "HasCrCard"
-    - "IsActiveMember"
-    - "EstimatedSalary"
+    - "Partner"
+    - "Dependents"
+    - 'PhoneService' 
+    - 'MultipleLines'
+    - 'OnlineSecurity' 
+    - 'OnlineBackup'
+    - 'DeviceProtection' 
+    - 'TechSupport'
+    - 'StreamingTV' 
+    - 'StreamingMovies'
 
 missing_values:
   strategy: "fill"
@@ -54,14 +58,14 @@ feature_binning:
 feature_encoding:
   nominal_columns: ['gender', 'InternetService', 'Contract', 'PaymentMethod']
   ordinal_mappings:
-    Tenure_bins:
+    tenureBins:
       New Customers: 0
       Established: 1
       Loyal: 2
 
 feature_scaling:
   scaling_type: "minmax"
-  columns_to_scale: ["Balance", "EstimatedSalary"]
+  columns_to_scale: ["MonthlyCharges", "TotalCharges"]
 
 data_splitting:
   split_type: "simple"

@@ -16,16 +16,6 @@ class MissingValueHandlingStrategy(ABC):
     def handle(self, df: pd.DataFrame) ->pd.DataFrame:
         pass
 
-class DropMissingValuesStrategy(MissingValueHandlingStrategy):
-    def __init__(self, critical_columns=[]):
-        self.critical_columns = critical_columns
-        logging.info(f"Dropping rows with missing values in critical columns: {self.critical_columns}")
-
-    def handle(self, df):
-        df_cleaned = df.dropna( subset=self.critical_columns)
-        n_dropped = len(df) - len(df_cleaned)
-        logging.info(f"{n_dropped} has been dropped")
-
 class ReplaceValuesStrategy(MissingValueHandlingStrategy):
     """
     Replaces blanks/whitespace in specified columns with NaN,
