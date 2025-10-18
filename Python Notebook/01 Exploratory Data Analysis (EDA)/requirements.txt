@@ -10,5 +10,5 @@ pyyaml
 python-dotenv
 ydata-profiling
 statsmodels
-ipython
+ipythons
 seaborn
