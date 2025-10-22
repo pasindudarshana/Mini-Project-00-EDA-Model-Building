@@ -4,6 +4,10 @@ data_paths:
   artifacts_dir: "artifacts"
   data_artifacts_dir: "artifacts/data"
   model_artifacts_dir: "artifacts/models"
+  X_train: "artifacts/data/X_train.csv"
+  X_test: "artifacts/data/X_test.csv"
+  Y_train: "artifacts/data/Y_train.csv"
+  Y_test: "artifacts/data/Y_test.csv"
 
 columns:
   target: "Churn"
@@ -140,7 +144,7 @@ evaluation:
   random_state: 42
 
 deployment:
-  model_name: "churn_analysis_model"
+  model_name: "telco_churn_analysis_model"
   model_version: "1.0.0"
   api_endpoint: "/predict"
   batch_size: 1000
@@ -158,12 +162,24 @@ logging:
   format: "%(asctime)s - %(levelname)s - %(message)s"
   file: "pipeline.log"
 
+mlflow:
+  tracking_uri: "file:./mlruns"  # Local file-based tracking
+  experiment_name: "Zuu Crew Churn Analysis"
+  model_registry_name: "churn_prediction"
+  artifact_path: "model"
+  run_name_prefix: "churn_run"
+  tags:
+    project: "customer_churn_prediction"
+    team: "ml_engineering"
+    environment: "development"
+  autolog: true
+
 environment:
   experiment_name: "telco_churn_analysis"
 
 pipeline:
-  data_pipeline_name: "data_processing_pipeline"
-  training_pipeline_name: "model_training_pipeline"
-  deployment_pipeline_name: "model_deployment_pipeline"
-  inference_pipeline_name: "inference_pipeline"
+  data_pipeline_name: "telco_data_processing_pipeline"
+  training_pipeline_name: "telco_model_training_pipeline"
+  deployment_pipeline_name: "telco_model_deployment_pipeline"
+  inference_pipeline_name: "telco_inference_pipeline"
   enable_cache: false

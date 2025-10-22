@@ -1,0 +1,223 @@
+{
+  "csv_files": {
+    "X_train": {
+      "file_path": "artifacts\\data\\X_train.csv",
+      "file_size_mb": 0.37,
+      "shape": [
+        5634,
+        16
+      ],
+      "columns": [
+        "SeniorCitizen",
+        "Partner",
+        "Dependents",
+        "Contract",
+        "PaperlessBilling",
+        "MonthlyCharges",
+        "TotalCharges",
+        "tenureBins",
+        "gender_Female",
+        "gender_Male",
+        "PaymentMethod_Bank transfer (automatic)",
+        "PaymentMethod_Credit card (automatic)",
+        "PaymentMethod_Electronic check",
+        "PaymentMethod_Mailed check",
+        "PhoneServiceBins",
+        "InternetServiceBins"
+      ],
+      "sample_values": {
+        "SeniorCitizen": {
+          "0": 0,
+          "1": 0
+        },
+        "Partner": {
+          "0": 0,
+          "1": 0
+        },
+        "Dependents": {
+          "0": 1,
+          "1": 0
+        },
+        "Contract": {
+          "0": 1,
+          "1": 2
+        },
+        "PaperlessBilling": {
+          "0": 0,
+          "1": 1
+        },
+        "MonthlyCharges": {
+          "0": 0.4636815920398009,
+          "1": 0.7855721393034826
+        },
+        "TotalCharges": {
+          "0": 0.1539240972733972,
+          "1": 0.5906238485630066
+        },
+        "tenureBins": {
+          "0": 1,
+          "1": 2
+        },
+        "gender_Female": {
+          "0": 1,
+          "1": 1
+        },
+        "gender_Male": {
+          "0": 0,
+          "1": 0
+        },
+        "PaymentMethod_Bank transfer (automatic)": {
+          "0": 0,
+          "1": 1
+        },
+        "PaymentMethod_Credit card (automatic)": {
+          "0": 0,
+          "1": 0
+        },
+        "PaymentMethod_Electronic check": {
+          "0": 0,
+          "1": 0
+        },
+        "PaymentMethod_Mailed check": {
+          "0": 1,
+          "1": 0
+        },
+        "PhoneServiceBins": {
+          "0": 1,
+          "1": 2
+        },
+        "InternetServiceBins": {
+          "0": 10,
+          "1": 11
+        }
+      }
+    },
+    "X_test": {
+      "file_path": "artifacts\\data\\X_test.csv",
+      "file_size_mb": 0.09,
+      "shape": [
+        1409,
+        16
+      ],
+      "columns": [
+        "SeniorCitizen",
+        "Partner",
+        "Dependents",
+        "Contract",
+        "PaperlessBilling",
+        "MonthlyCharges",
+        "TotalCharges",
+        "tenureBins",
+        "gender_Female",
+        "gender_Male",
+        "PaymentMethod_Bank transfer (automatic)",
+        "PaymentMethod_Credit card (automatic)",
+        "PaymentMethod_Electronic check",
+        "PaymentMethod_Mailed check",
+        "PhoneServiceBins",
+        "InternetServiceBins"
+      ],
+      "sample_values": {
+        "SeniorCitizen": {
+          "0": 0,
+          "1": 0
+        },
+        "Partner": {
+          "0": 1,
+          "1": 0
+        },
+        "Dependents": {
+          "0": 0,
+          "1": 0
+        },
+        "Contract": {
+          "0": 0,
+          "1": 0
+        },
+        "PaperlessBilling": {
+          "0": 1,
+          "1": 1
+        },
+        "MonthlyCharges": {
+          "0": 0.0651741293532338,
+          "1": 0.0696517412935323
+        },
+        "TotalCharges": {
+          "0": 0.0028555637435519,
+          "1": 0.1147349392041267
+        },
+        "tenureBins": {
+          "0": 0,
+          "1": 1
+        },
+        "gender_Female": {
+          "0": 1,
+          "1": 0
+        },
+        "gender_Male": {
+          "0": 0,
+          "1": 1
+        },
+        "PaymentMethod_Bank transfer (automatic)": {
+          "0": 0,
+          "1": 1
+        },
+        "PaymentMethod_Credit card (automatic)": {
+          "0": 0,
+          "1": 0
+        },
+        "PaymentMethod_Electronic check": {
+          "0": 1,
+          "1": 0
+        },
+        "PaymentMethod_Mailed check": {
+          "0": 0,
+          "1": 0
+        },
+        "PhoneServiceBins": {
+          "0": 0,
+          "1": 2
+        },
+        "InternetServiceBins": {
+          "0": 7,
+          "1": 0
+        }
+      }
+    },
+    "Y_train": {
+      "file_path": "artifacts\\data\\Y_train.csv",
+      "file_size_mb": 0.02,
+      "shape": [
+        5634,
+        1
+      ],
+      "columns": [
+        "Churn"
+      ],
+      "sample_values": {
+        "Churn": {
+          "0": 0,
+          "1": 0
+        }
+      }
+    },
+    "Y_test": {
+      "file_path": "artifacts\\data\\Y_test.csv",
+      "file_size_mb": 0.0,
+      "shape": [
+        1409,
+        1
+      ],
+      "columns": [
+        "Churn"
+      ],
+      "sample_values": {
+        "Churn": {
+          "0": 1,
+          "1": 0
+        }
+      }
+    }
+  },
+  "timestamp": "2025-10-22T13:43:13.544734"
+}

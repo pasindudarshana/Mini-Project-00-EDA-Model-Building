@@ -1,0 +1,38 @@
+{
+  "feature":{
+    "9":"gender_Male",
+    "8":"gender_Female",
+    "10":"PaymentMethod_Bank transfer (automatic)",
+    "2":"Dependents",
+    "1":"Partner",
+    "13":"PaymentMethod_Mailed check",
+    "11":"PaymentMethod_Credit card (automatic)",
+    "0":"SeniorCitizen",
+    "6":"TotalCharges",
+    "4":"PaperlessBilling",
+    "5":"MonthlyCharges",
+    "12":"PaymentMethod_Electronic check",
+    "15":"InternetServiceBins",
+    "14":"PhoneServiceBins",
+    "7":"tenureBins",
+    "3":"Contract"
+  },
+  "importance":{
+    "9":0.0,
+    "8":0.0195947103,
+    "10":0.0206802469,
+    "2":0.0213978402,
+    "1":0.0225420911,
+    "13":0.0227481052,
+    "11":0.0237092897,
+    "0":0.0238930024,
+    "6":0.0254784785,
+    "4":0.027911121,
+    "5":0.0286056884,
+    "12":0.0287226494,
+    "15":0.0331051648,
+    "14":0.0334702656,
+    "7":0.156622991,
+    "3":0.5115184188
+  }
+}
