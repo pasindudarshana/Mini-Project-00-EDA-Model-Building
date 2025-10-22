@@ -51,7 +51,7 @@ outlier_detection:
 
 feature_binning:
   tenure_bins:
-    New Customers: [0, 12]
+    New: [0, 12]
     Established: [12, 48]
     Loyal: [48]
   tenure_mapping:
@@ -80,6 +80,24 @@ feature_encoding:
       "No": 0
       "Yes": 1
     Churn:
+      "No": 0
+      "Yes": 1
+  inference_ordinal_mappings:
+    tenureBins:
+      New: 0
+      Established: 1
+      Loyal: 2
+    Contract:
+      Month-to-month: 0
+      One year: 1
+      Two year: 2
+    PaperlessBilling:
+      "No": 0
+      "Yes": 1
+    Partner:
+      "No": 0
+      "Yes": 1
+    Dependents:
       "No": 0
       "Yes": 1
 

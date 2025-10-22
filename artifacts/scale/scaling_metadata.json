@@ -1,0 +1,16 @@
+{
+  "columns_to_scale": [
+    "MonthlyCharges",
+    "TotalCharges"
+  ],
+  "data_min": [
+    18.25,
+    0.0
+  ],
+  "data_max": [
+    118.75,
+    8684.8
+  ],
+  "n_features": 2,
+  "scaling_type": "minmax"
+}

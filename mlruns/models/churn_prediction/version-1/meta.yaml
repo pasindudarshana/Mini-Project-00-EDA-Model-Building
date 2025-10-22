@@ -1,18 +1,18 @@
 aliases: []
-creation_timestamp: 1761122878216
+creation_timestamp: 1761138706379
 current_stage: None
 deployment_job_state: null
 description: null
-last_updated_timestamp: 1761122878216
+last_updated_timestamp: 1761138706379
 metrics: null
-model_id: m-46fe7e766bce4017bfa4cdf96888d732
+model_id: m-34b626f003634ca7a004bf0eecde68b0
 name: churn_prediction
 params: null
-run_id: c5cad2d4cec04c7f9c450427f80def0a
+run_id: b0a4db4d8d1b4a069091b26dcea6ebca
 run_link: null
-source: models:/m-46fe7e766bce4017bfa4cdf96888d732
+source: models:/m-34b626f003634ca7a004bf0eecde68b0
 status: READY
 status_message: null
-storage_location: file:D:/MY FILES/Projects/Mini-Project-00-EDA-Model-Building/mlruns/352850720837266091/models/m-46fe7e766bce4017bfa4cdf96888d732/artifacts
+storage_location: file:D:/MY FILES/Projects/Mini-Project-00-EDA-Model-Building/mlruns/328257786274067096/models/m-34b626f003634ca7a004bf0eecde68b0/artifacts
 user_id: null
 version: 1

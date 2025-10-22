@@ -1,0 +1,10 @@
+artifact_location: file:D:/MY FILES/Projects/Mini-Project-00-EDA-Model-Building/mlruns/328257786274067096/models/m-34b626f003634ca7a004bf0eecde68b0/artifacts
+creation_timestamp: 1761138700403
+experiment_id: '328257786274067096'
+last_updated_timestamp: 1761138706309
+model_id: m-34b626f003634ca7a004bf0eecde68b0
+model_type: null
+name: model
+source_run_id: b0a4db4d8d1b4a069091b26dcea6ebca
+status: 2
+status_message: null

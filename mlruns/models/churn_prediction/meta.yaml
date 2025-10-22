@@ -1,7 +1,7 @@
 aliases: {}
-creation_timestamp: 1761122878211
+creation_timestamp: 1761138706372
 deployment_job_id: null
 deployment_job_state: null
 description: null
-last_updated_timestamp: 1761122878216
+last_updated_timestamp: 1761138706379
 name: churn_prediction

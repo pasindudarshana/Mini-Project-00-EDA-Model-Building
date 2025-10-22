@@ -1,0 +1,14 @@
+artifact_uri: file:D:/MY FILES/Projects/Mini-Project-00-EDA-Model-Building/mlruns/328257786274067096/b0a4db4d8d1b4a069091b26dcea6ebca/artifacts
+end_time: 1761138706483
+entry_point_name: ''
+experiment_id: '328257786274067096'
+lifecycle_stage: active
+run_id: b0a4db4d8d1b4a069091b26dcea6ebca
+run_name: training pipeline | 2025-10-22 18:41:37
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761138697699
+status: 3
+tags: []
+user_id: pasin
