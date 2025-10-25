@@ -1,0 +1,14 @@
+artifact_uri: file:D:/MY FILES/Projects/Mini-Project-00-EDA-Model-Building/mlruns/328257786274067096/73342cbb24c34825a822bb686ee85447/artifacts
+end_time: 1761391915188
+entry_point_name: ''
+experiment_id: '328257786274067096'
+lifecycle_stage: active
+run_id: 73342cbb24c34825a822bb686ee85447
+run_name: streaming inference | 2025-10-25 17:01:54
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1761391914941
+status: 3
+tags: []
+user_id: pasin

@@ -182,7 +182,7 @@ logging:
 
 mlflow:
   tracking_uri: "file:./mlruns"  # Local file-based tracking
-  experiment_name: "Zuu Crew Churn Analysis"
+  experiment_name: "Mini Project 00 EDA and Model Building"
   model_registry_name: "churn_prediction"
   artifact_path: "model"
   run_name_prefix: "churn_run"
